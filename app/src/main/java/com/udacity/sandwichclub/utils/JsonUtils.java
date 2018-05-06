@@ -6,11 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JsonUtils {
 
     public static Sandwich parseSandwichJson(String json) {
+        Sandwich thisSandwich = null;
         try {
              /*
         <item>{\"name\":{\"mainName\":\"Ham and cheese sandwich\",\"alsoKnownAs\":[]},\"placeOfOrigin\":\"\",\"description\":\"A ham and cheese
@@ -23,19 +25,29 @@ public class JsonUtils {
         */
 
             JSONObject sandwichDetailJSON = new JSONObject(json);
-            JSONArray nameArray = sandwichDetailJSON.getJSONArray("name");
-            JSONObject nameObject = nameArray.getJSONObject(0);
+            JSONObject nameObject = sandwichDetailJSON.getJSONObject("name");
             String mainName = nameObject.getString("mainName");
-            List<String> aka = nameObject.getString("alsoKnownAs");
+            JSONArray alsoKnownAs = nameObject.getJSONArray("alsoKnownAs");
+            ArrayList<String> alsoKnownAsList = new ArrayList<String>();
+
+            for (int i = 0; i < alsoKnownAs.length(); i++) {
+                alsoKnownAsList.add(alsoKnownAs.getString(i));
+            }
 
             String placeOfOrigin = sandwichDetailJSON.getString("placeOfOrigin");
             String description = sandwichDetailJSON.getString("description");
             String image = sandwichDetailJSON.getString("image");
-            List<String> ingredients = sandwichDetailJSON.getString("ingredients");
+            JSONArray ingredientsArray = sandwichDetailJSON.getJSONArray("ingredients");
+            ArrayList<String> ingredientsList = new ArrayList<String>();
 
-            return Sandwich sandwich = new Sandwich(mainName, aka, placeOfOrigin, description, image, ingredients);
-        }catch (JSONException e) {
-            return null;
+            for (int i = 0; i < ingredientsArray.length(); i++) {
+                ingredientsList.add(ingredientsArray.getString(i));
+            }
+            thisSandwich = new Sandwich(mainName, alsoKnownAsList, placeOfOrigin, description, image, ingredientsList);
+            return thisSandwich;
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        return thisSandwich;
     }
 }
