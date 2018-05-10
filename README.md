@@ -1,3 +1,12 @@
+#This is my version of a project for the Udacity Android Development Nanodegree. 
+We were given a starter code and I have edited the code in the following to create a functional app.
+
+JSONUtils.java
+DetailActivity.java
+activity_detail.xml
+
+
+-------below is the original readme----
 # Sandwich Club Project Starter Code
 
 ## Project Overview
