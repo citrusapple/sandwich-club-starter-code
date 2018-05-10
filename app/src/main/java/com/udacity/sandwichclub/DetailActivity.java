@@ -82,11 +82,11 @@ public class DetailActivity extends AppCompatActivity {
         // here I am using a try catch for the also known as part of the JSON.  I call the list and change it to string
         //normally I would do .join with java 8 but it seems to break things here due to the rest of the code being older
         // so I did a bit of hard coding and just did a toString with replace all.
-        try{
+        try {
             List alsoKnownAs = sandwich.getAlsoKnownAs();
-            String AKAString = alsoKnownAs.toString().replaceAll("\\[|\\]", "").replaceAll(", ","\t");
+            String AKAString = alsoKnownAs.toString().replaceAll("\\[|\\]", "");
             mAKA.setText(AKAString);
-        } catch(Exception e){
+        } catch (Exception e) {
             String empty = new String();
             mAKA.setText(empty);
         }
@@ -94,7 +94,7 @@ public class DetailActivity extends AppCompatActivity {
         try {
             String placeOfOrigin = sandwich.getPlaceOfOrigin();
             mOrigin.setText(placeOfOrigin);
-        }catch (Exception e){
+        } catch (Exception e) {
             String empty = new String();
             mOrigin.setText(empty);
         }
@@ -102,7 +102,7 @@ public class DetailActivity extends AppCompatActivity {
         try {
             String description = sandwich.getDescription();
             mDescription.setText(description);
-        } catch (Exception e){
+        } catch (Exception e) {
             String empty = new String();
             mDescription.setText(empty);
         }
@@ -110,9 +110,9 @@ public class DetailActivity extends AppCompatActivity {
 
         try {
             List ingredients = sandwich.getIngredients();
-            String ingredientsString = ingredients.toString().replaceAll("[", "").replaceAll("]", "");
+            String ingredientsString = ingredients.toString().replaceAll("\\[|\\]", "");
             mIngredients.setText(ingredientsString);
-        }catch (Exception e){
+        } catch (Exception e) {
             String empty = new String();
             mIngredients.setText(empty);
         }
