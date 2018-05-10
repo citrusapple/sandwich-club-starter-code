@@ -26,9 +26,7 @@ public class Sandwich {
         this.ingredients = ingredients;
     }
 
-    public String getMainName() {
-        return mainName;
-    }
+    public String getMainName() { return mainName; }
 
     public void setMainName(String mainName) {
         this.mainName = mainName;
