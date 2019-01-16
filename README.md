@@ -1,10 +1,21 @@
+
+
 #This is my version of a project for the Udacity Android Development Nanodegree. 
-We were given a starter code and I have edited the code in the following to create a functional app.
+
+We were given a starter code and I have edited the code in the following to create a functional app that parses json data and displays relevant information in a simple app.
 
 JSONUtils.java, DetailActivity.java, activity_detail.xml
 
+-------Project screenshot-------------
+Here's the home page for the app with a list of sandwich names that are clickable.
+![main page with a list of sandwich names](https://github.com/citrusapple/sandwich-club-starter-code/blob/master/sandwich_app_screenshot.PNG)
 
--------below is the original readme----
+Here's a details page for the sandwich Guabao.
+
+![details page for sandwich guabao with autopopulated info](https://github.com/citrusapple/sandwich-club-starter-code/blob/master/sandwich_app_screenshot2.PNG)
+
+
+-------below is the original guidelines--------
 # Sandwich Club Project Starter Code
 
 ## Project Overview
